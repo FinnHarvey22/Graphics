@@ -9,6 +9,7 @@ HelloGL::HelloGL(int argc, char* argv[])
 
 	GLUTCallbacks::Init(this);
 	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_DOUBLE);
 	glutInitWindowSize(800, 800);
 	glutCreateWindow("Simple OpenGL Program");
 	glutDisplayFunc(GLUTCallbacks::Display);
@@ -24,6 +25,7 @@ void HelloGL::Display()
 	DrawSquare();
 	DrawTriangle();
 	glFlush();
+	glutSwapBuffers();
 }
 void HelloGL::Update()
 {
@@ -108,8 +110,6 @@ void HelloGL::DrawTriangle()
 	}
 	glPopMatrix();
 }
-
-
 
 HelloGL::~HelloGL(void)
 {
