@@ -37,6 +37,10 @@ public:
 	void DrawTriangle();
 	void DrawCube();
 	void DrawCubeArray();
+	void DrawIndexedCube();
+	void DrawIndexedCubeAlt();
+	void DrawPyramid();
+	void DrawPrism();
 	
 	void Update();
 	void Keyboard(unsigned char key, int x, int y);
@@ -47,5 +51,8 @@ private:
 	Camera* camera;
 	static Vertex vertices[];
 	static Color colors[];
+	static Vertex indexedVertices[];
+	static Color indexedColors[];
+	static GLushort indices[];
 };
 
