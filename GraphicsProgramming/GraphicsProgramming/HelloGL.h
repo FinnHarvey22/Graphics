@@ -4,24 +4,11 @@
 #include <gl/GLU.h>
 #include "Gl\freeglut.h"
 #include "GLUTCallbacks.h"
+#include "Structures.h"
+#include "Cube.h"
 #define REFRESHRATE 16
 
-struct Vector3 
-{
-	float x, y, z;
-};
-struct Camera 
-{
-	Vector3 eye, center, up;
-};
-struct Color 
-{
-	GLfloat r, g, b;
-};
-struct Vertex 
-{
-	GLfloat x, y, z;
-};
+#define NUM_CUBES 200
 
 class HelloGL
 {
@@ -32,16 +19,12 @@ public:
 
 	void Display();
 	
-	void DrawOctagon();
+	/*void DrawOctagon();
 	void DrawSquare();
 	void DrawTriangle();
-	void DrawCube();
-	void DrawCubeArray();
-	void DrawIndexedCube();
-	void DrawIndexedCubeAlt();
-	void DrawPyramid();
-	void DrawPrism();
 	
+	void DrawPrism();*/
+	void DrawPyramid();
 	void Update();
 	void Keyboard(unsigned char key, int x, int y);
 private:
@@ -49,10 +32,11 @@ private:
 	float rotationSqu;
 	float rotationTri; 
 	Camera* camera;
-	static Vertex vertices[];
+	Cube* cube[NUM_CUBES];
+	/*static Vertex vertices[];
 	static Color colors[];
 	static Vertex indexedVertices[];
 	static Color indexedColors[];
-	static GLushort indices[];
+	static GLushort indices[];*/
 };
 

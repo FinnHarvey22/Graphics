@@ -30,5 +30,5 @@ namespace GLUTCallbacks
 	{
 		helloGL->Keyboard(key, x, y);
 	}
-
+	
 }
