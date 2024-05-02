@@ -92,6 +92,7 @@ HelloGL::HelloGL(int argc, char* argv[])
 	glEnable(GL_DEPTH_TEST);
 	glCullFace(GL_BACK);
 	//glCullFace(GL_FRONT);
+	Cube::Load((char*)"cube.txt");
 	glutMainLoop();
 
 

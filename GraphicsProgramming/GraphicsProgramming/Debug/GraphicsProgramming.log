@@ -1,5 +1,14 @@
-﻿  HelloGL.cpp
+﻿  Cube.cpp
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\Cube.cpp(15,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\Cube.cpp(16,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\Cube.cpp(17,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  GLUTCallbacks.cpp
+  GLUTCallbacks.h
+  HelloGL.cpp
 C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(65,107): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(65,81): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(65,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  main.cpp
+  Generating Code...
+Debug\GLUTCallbacks.obj : warning LNK4042: object specified more than once; extras ignored
   GraphicsProgramming.vcxproj -> C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\Debug\GraphicsProgramming.exe
