@@ -1,8 +1,5 @@
 ﻿  HelloGL.cpp
-C:\Users\h018061n\source\repos\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(26,15): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\h018061n\source\repos\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(28,14): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\h018061n\source\repos\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(30,14): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\h018061n\source\repos\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(32,14): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\h018061n\source\repos\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(34,15): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\h018061n\source\repos\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(36,15): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-  GraphicsProgramming.vcxproj -> C:\Users\h018061n\source\repos\GraphicsProgramming\Debug\GraphicsProgramming.exe
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(65,107): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(65,81): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(65,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  GraphicsProgramming.vcxproj -> C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\Debug\GraphicsProgramming.exe
