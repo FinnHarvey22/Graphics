@@ -27,6 +27,8 @@ public:
 	void DrawPyramid();
 	void Update();
 	void Keyboard(unsigned char key, int x, int y);
+	void InitObjects();
+	void InitGL(int argc, char* argv[]);
 private:
 	float rotationOct;
 	float rotationSqu;

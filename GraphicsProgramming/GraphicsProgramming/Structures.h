@@ -1,4 +1,6 @@
 #pragma once
+#include <Windows.h>
+#include <gl/GL.h>
 struct Vector3
 {
 	float x, y, z;
@@ -14,4 +16,10 @@ struct Color
 struct Vertex
 {
 	GLfloat x, y, z;
+};
+struct Mesh {
+	Vertex* Vertices;
+	Color* Colors;
+	GLushort* Indices;
+	int VertexCount, ColorCount, IndexCount;
 };
