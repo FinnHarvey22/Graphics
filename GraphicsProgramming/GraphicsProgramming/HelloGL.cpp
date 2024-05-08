@@ -72,8 +72,8 @@ void HelloGL::Display()
 	//DrawTriangle();
 	//glutWireIcosahedron();
 	DrawPyramid();
-	for (int b=0; b < NUM_CUBES; b++) {
-		cube[b]->Draw();
+	for (int b=0; b < NUM_OBJECTS; b++) {
+		objects[b]->Draw();
 	}
 	glFlush();
 	glutSwapBuffers();
@@ -83,8 +83,8 @@ void HelloGL::Update()
 	glLoadIdentity();
 	gluLookAt(camera->eye.x, camera->eye.y, camera->eye.z, camera->center.x, camera->center.y, camera->center.z, camera->up.x, camera->up.y, camera->up.z);
 	glutPostRedisplay();
-	for (int c=0; c < NUM_CUBES; c++) {
-		cube[c]->Update();
+	for (int c=0; c < NUM_OBJECTS; c++) {
+		objects[c]->Update();
 	}
 
 	if (rotationOct >= 360.0f)
@@ -269,9 +269,9 @@ void HelloGL::InitObjects()
 
 	Mesh* cubeMesh = MeshLoader::Load((char*)"cube.txt");
 
-	for (int i = 0; i < NUM_CUBES; i++)
+	for (int i = 0; i < NUM_OBJECTS; i++)
 	{
-		cube[i] = new Cube(cubeMesh, ((rand() % 400) / 10.0f) - 20.0f, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
+		objects[i] = new Cube(cubeMesh, ((rand() % 400) / 10.0f) - 20.0f, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
 	}
 
 	camera->eye.x = 0.0f; camera->eye.y = 0.0f; camera->eye.z = 3.0f;

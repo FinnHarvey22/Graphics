@@ -4,11 +4,12 @@
 #include <gl/GLU.h>
 #include "GL/freeglut.h"
 #include "Structures.h"
+#include "SceneObject.h"
 
-class Cube
+class Cube : public SceneObject
 {
 private:
-	Mesh* _mesh;
+	
 	/*static Vertex* indexedVertices;
 	static Color* indexedColors;
 	static GLushort* indices;

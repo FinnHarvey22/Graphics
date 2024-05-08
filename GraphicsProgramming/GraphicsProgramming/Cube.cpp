@@ -2,9 +2,9 @@
 #include <iostream>
 #include <fstream>
 
-Cube::Cube(Mesh* mesh, int x, int y, int z)
+Cube::Cube(Mesh* mesh, int x, int y, int z) : SceneObject(mesh)
 {
-	_mesh = mesh;
+	
 	_Position.x = x;
 	_Position.y = y;
 	_Position.z = z;

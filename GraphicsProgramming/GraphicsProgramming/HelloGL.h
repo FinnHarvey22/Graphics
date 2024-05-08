@@ -8,7 +8,7 @@
 #include "Cube.h"
 #define REFRESHRATE 16
 
-#define NUM_CUBES 200
+#define NUM_OBJECTS 1000
 
 class HelloGL
 {
@@ -34,7 +34,7 @@ private:
 	float rotationSqu;
 	float rotationTri; 
 	Camera* camera;
-	Cube* cube[NUM_CUBES];
+	SceneObject* objects[1000];
 	/*static Vertex vertices[];
 	static Color colors[];
 	static Vertex indexedVertices[];
