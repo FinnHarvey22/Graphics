@@ -83,7 +83,7 @@ void HelloGL::Update()
 	glLoadIdentity();
 	gluLookAt(camera->eye.x, camera->eye.y, camera->eye.z, camera->center.x, camera->center.y, camera->center.z, camera->up.x, camera->up.y, camera->up.z);
 	glutPostRedisplay();
-	for (int c=0; c < NUM_OBJECTS; c++) {
+	for (int c = 0; c < NUM_OBJECTS; c++) {
 		objects[c]->Update();
 	}
 
@@ -268,10 +268,15 @@ void HelloGL::InitObjects()
 	camera = new Camera();
 
 	Mesh* cubeMesh = MeshLoader::Load((char*)"cube.txt");
+	Mesh* pyramidMesh = MeshLoader::Load((char*)"pyramid.txt");
 
-	for (int i = 0; i < NUM_OBJECTS; i++)
+	for (int i = 0; i < 500; i++)
 	{
 		objects[i] = new Cube(cubeMesh, ((rand() % 400) / 10.0f) - 20.0f, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
+	}	
+	for (int i = 500; i < 1000; i++)
+	{
+		objects[i] = new Pyramid(pyramidMesh, ((rand() % 400) / 10.0f) - 20.0f, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
 	}
 
 	camera->eye.x = 0.0f; camera->eye.y = 0.0f; camera->eye.z = 3.0f;

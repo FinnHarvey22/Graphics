@@ -6,6 +6,8 @@
 #include "GLUTCallbacks.h"
 #include "Structures.h"
 #include "Cube.h"
+#include "Pyramid.h"
+#include <iostream>
 #define REFRESHRATE 16
 
 #define NUM_OBJECTS 1000

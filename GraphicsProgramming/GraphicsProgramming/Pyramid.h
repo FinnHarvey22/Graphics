@@ -24,6 +24,5 @@ public:
 
 	void Draw();
 	void Update();
-	//Cube(Mesh* mesh, float x, float y, float z);
 };
 

@@ -2,4 +2,22 @@
 C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\Cube.cpp(8,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\Cube.cpp(9,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\Cube.cpp(10,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  GLUTCallbacks.cpp
+  GLUTCallbacks.h
+  HelloGL.cpp
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(275,120): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(275,94): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(275,60): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(279,126): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(279,100): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(279,66): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  main.cpp
+  MeshLoader.cpp
+  Pyramid.cpp
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\Pyramid.cpp(8,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\Pyramid.cpp(9,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\Pyramid.cpp(10,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  SceneObject.cpp
+  Generating Code...
+Debug\GLUTCallbacks.obj : warning LNK4042: object specified more than once; extras ignored
   GraphicsProgramming.vcxproj -> C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\Debug\GraphicsProgramming.exe
