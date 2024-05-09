@@ -18,7 +18,7 @@ private:
 	Vector3 _Position;
 
 public:
-	Cube(Mesh* mesh,int x, int y, int z);
+	Cube(Mesh* mesh, Texture2D* texture, int x, int y, int z);
 	~Cube();
 
 	void Draw();

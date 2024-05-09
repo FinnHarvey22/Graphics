@@ -3,6 +3,7 @@
 #include "MeshLoader.h"
 
 
+
 //Vertex HelloGL::vertices[] = { 
 //1, 1, 1, -1, 1, 1, -1,-1, 1, // v0-v1-v2 (front)
 //
@@ -56,6 +57,7 @@
 
 HelloGL::HelloGL(int argc, char* argv[]) 
 {
+	GLUTCallbacks::Init(this);
 	HelloGL::InitGL(argc, argv);
 	HelloGL::InitObjects();
 	
@@ -65,14 +67,14 @@ HelloGL::HelloGL(int argc, char* argv[])
 }
 void HelloGL::Display()
 {
-	glClearColor(0.2f, 0.0f, 0.0f, 1.0f);
+	
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	//DrawOctagon();
 	//DrawSquare();
 	//DrawTriangle();
 	//glutWireIcosahedron();
-	DrawPyramid();
-	for (int b=0; b < NUM_OBJECTS; b++) {
+	//DrawPyramid();
+	for (int b = 0; b < NUM_OBJECTS; b++) {
 		objects[b]->Draw();
 	}
 	glFlush();
@@ -87,7 +89,7 @@ void HelloGL::Update()
 		objects[c]->Update();
 	}
 
-	if (rotationOct >= 360.0f)
+	/*if (rotationOct >= 360.0f)
 	{
 		rotationOct = 0.0f;
 	}
@@ -102,7 +104,7 @@ void HelloGL::Update()
 	if (rotationTri >= 360.0f)
 	{
 		rotationTri = 0.0f;
-	}
+	}*/
 }
 //void HelloGL::DrawOctagon()
 //{
@@ -166,7 +168,7 @@ void HelloGL::Update()
 //	}
 //	glPopMatrix();
 //}
-void HelloGL::DrawPyramid()
+/*void HelloGL::DrawPyramid()
 {
 	glPushMatrix();
 	
@@ -223,7 +225,7 @@ void HelloGL::DrawPyramid()
 		glEnd();
 
 		glPopMatrix();
-}
+}*/
 //void HelloGL::DrawPrism()
 //{
 //	glPushMatrix();
@@ -267,13 +269,21 @@ void HelloGL::InitObjects()
 	rotationSqu = 0.0f;
 	camera = new Camera();
 
-	Mesh* cubeMesh = MeshLoader::Load((char*)"cube.txt");
-	Mesh* pyramidMesh = MeshLoader::Load((char*)"pyramid.txt");
+	Texture2D* stars = new Texture2D();
+	Texture2D* penguins = new Texture2D();
+	Mesh* cubeMesh = MeshLoader::Load((char*)"cube.txt" ,  true);
+	Mesh* pyramidMesh = MeshLoader::Load((char*)"pyramid.txt", false);
+	stars->Load((char*)"stars.raw", 512, 512);
+	penguins->Load((char*)"penguins.raw", 512, 512);
 
-	for (int i = 0; i < 500; i++)
+	for (int i = 0; i < 250; i++)
 	{
-		objects[i] = new Cube(cubeMesh, ((rand() % 400) / 10.0f) - 20.0f, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
+		objects[i] = new Cube(cubeMesh, stars, ((rand() % 400) / 10.0f) - 20.0f, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
 	}	
+	for (int i = 250; i < 500; i++)
+	{
+		objects[i] = new Cube(cubeMesh, penguins, ((rand() % 400) / 10.0f) - 20.0f, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
+	}
 	for (int i = 500; i < 1000; i++)
 	{
 		objects[i] = new Pyramid(pyramidMesh, ((rand() % 400) / 10.0f) - 20.0f, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
@@ -289,7 +299,6 @@ void HelloGL::InitGL(int argc, char* argv[])
 {
 
 
-	GLUTCallbacks::Init(this);
 	glutInit(&argc, argv);
 
 	glutInitWindowSize(800, 800);
@@ -306,12 +315,38 @@ void HelloGL::InitGL(int argc, char* argv[])
 	gluPerspective(45, 1, 1, 10000);
 	glViewport(0, 0, 800, 800);
 
-
+	glEnable(GL_TEXTURE_2D);
 	glMatrixMode(GL_MODELVIEW);
-	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
 	glCullFace(GL_BACK);
+	
 	//glCullFace(GL_FRONT);
+}
+
+void HelloGL::InitLight()
+{
+	_lightPosition = new Vector4();
+	_lightPosition->x = 0.0;
+	_lightPosition->y = 0.0;
+	_lightPosition->z = 1.0;
+	_lightPosition->x = 0.0;
+
+	_lightData = new Lighting();
+	_lightData->Ambient.x
+	_lightData->Ambient.y
+	_lightData->Ambient 
+	_lightData->Ambient
+	_lightData->Diffuse.x
+	_lightData->Diffuse.y
+	_lightData->Diffuse
+	_lightData->Diffuse
+	_lightData->Specular.x
+	_lightData->Specular.y
+	_lightData->Specular
+	_lightData->Specular
 }
 
 HelloGL::~HelloGL(void)

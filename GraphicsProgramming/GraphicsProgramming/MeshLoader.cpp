@@ -1,5 +1,4 @@
 #include "MeshLoader.h"
-
 #include <iostream>
 #include <fstream>
 
@@ -9,8 +8,9 @@ namespace MeshLoader
 {
 	void LoadVertices(ifstream& inFile, Mesh& mesh);
 	void LoadColours(ifstream& inFile, Mesh& mesh);
+	void LoadCoords(ifstream& inFile, Mesh& Mesh);
 	void LoadIndices(ifstream& inFile, Mesh& mesh);
-
+	
 	void LoadVertices(ifstream& inFile, Mesh& mesh)
 	{
 		inFile >> mesh.VertexCount;
@@ -28,16 +28,26 @@ namespace MeshLoader
 		}
 	}
 
-	void LoadColours(ifstream& inFile, Mesh& mesh)
+	void LoadCoords(ifstream& inFile, Mesh& Mesh) {
+		inFile >> Mesh.TexCoordCount;
+		if (Mesh.TexCoordCount > 0) {
+			Mesh.TexCoords = new TexCoord[Mesh.TexCoordCount];
+			for (int i = 0; i < Mesh.TexCoordCount; i++) {
+				inFile >> Mesh.TexCoords[i].u;
+				inFile >> Mesh.TexCoords[i].v;
+			}
+		}
+	}
+	void LoadNormals(ifstream& inFile, Mesh& mesh)
 	{
 		//TODO: LOAD COLOURS
-		inFile >> mesh.ColorCount;
-		if (mesh.ColorCount > 0) {
-			mesh.Colors = new Color[mesh.ColorCount];
-			for (int i = 0; i < mesh.ColorCount; i++) {
-				inFile >> mesh.Colors[i].r;
-				inFile >> mesh.Colors[i].g;
-				inFile >> mesh.Colors[i].b;
+		inFile >> mesh.NormalCount;
+		if (mesh.NormalCount > 0) {
+			mesh.Normals = new Vector3[mesh.NormalCount];
+			for (int i = 0; i < mesh.NormalCount; i++) {
+				inFile >> mesh.Normals[i].x;
+				inFile >> mesh.Normals[i].y;
+				inFile >> mesh.Normals[i].z;
 			}
 		}
 	}
@@ -54,7 +64,7 @@ namespace MeshLoader
 			}
 	}
 
-	Mesh* MeshLoader::Load(char* path)
+	Mesh* MeshLoader::Load(char* path, bool loadCoords)
 	{
 		Mesh* mesh = new Mesh();
 
@@ -69,7 +79,11 @@ namespace MeshLoader
 		}
 		
 		LoadVertices(inFile, *mesh);
-		LoadColours(inFile, *mesh);
+		if (loadCoords) 
+		{
+			LoadCoords(inFile, *mesh);
+		}
+		LoadNormals(inFile, *mesh);
 		LoadIndices(inFile, *mesh);
 		//LOAD DATA USING METHODS ABOVE
 

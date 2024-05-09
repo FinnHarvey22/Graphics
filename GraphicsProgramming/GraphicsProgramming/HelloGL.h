@@ -25,18 +25,23 @@ public:
 	void DrawSquare();
 	void DrawTriangle();
 	
-	void DrawPrism();*/
-	void DrawPyramid();
+	void DrawPrism();
+	void DrawPyramid();*/
 	void Update();
 	void Keyboard(unsigned char key, int x, int y);
 	void InitObjects();
 	void InitGL(int argc, char* argv[]);
+	void InitLight();
 private:
 	float rotationOct;
 	float rotationSqu;
 	float rotationTri; 
 	Camera* camera;
-	SceneObject* objects[1000];
+	SceneObject* objects[NUM_OBJECTS];
+	Vector4* _lightPosition;
+	Lighting* _lightData;
+	
+	
 	/*static Vertex vertices[];
 	static Color colors[];
 	static Vertex indexedVertices[];

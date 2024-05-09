@@ -1,23 +1,19 @@
-﻿  Cube.cpp
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\Cube.cpp(8,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\Cube.cpp(9,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\Cube.cpp(10,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  GLUTCallbacks.cpp
-  GLUTCallbacks.h
+﻿  GLUTCallbacks.h
   HelloGL.cpp
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(275,120): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(275,94): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(275,60): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(279,126): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(279,100): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(279,66): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(281,127): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(281,101): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(281,67): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(285,130): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(285,104): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(285,70): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(289,126): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(289,100): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(289,66): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   main.cpp
-  MeshLoader.cpp
-  Pyramid.cpp
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\Pyramid.cpp(8,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\Pyramid.cpp(9,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\Pyramid.cpp(10,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  SceneObject.cpp
   Generating Code...
 Debug\GLUTCallbacks.obj : warning LNK4042: object specified more than once; extras ignored
-  GraphicsProgramming.vcxproj -> C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\Debug\GraphicsProgramming.exe
+HelloGL.obj : error LNK2019: unresolved external symbol "void __cdecl GLUTCallbacks::Init(class HelloGL *)" (?Init@GLUTCallbacks@@YAXPAVHelloGL@@@Z) referenced in function "public: __thiscall HelloGL::HelloGL(int,char * * const)" (??0HelloGL@@QAE@HQAPAD@Z)
+HelloGL.obj : error LNK2019: unresolved external symbol "void __cdecl GLUTCallbacks::Display(void)" (?Display@GLUTCallbacks@@YAXXZ) referenced in function "public: void __thiscall HelloGL::InitGL(int,char * * const)" (?InitGL@HelloGL@@QAEXHQAPAD@Z)
+HelloGL.obj : error LNK2019: unresolved external symbol "void __cdecl GLUTCallbacks::Timer(int)" (?Timer@GLUTCallbacks@@YAXH@Z) referenced in function "public: void __thiscall HelloGL::InitGL(int,char * * const)" (?InitGL@HelloGL@@QAEXHQAPAD@Z)
+HelloGL.obj : error LNK2019: unresolved external symbol "void __cdecl GLUTCallbacks::Keyboard(unsigned char,int,int)" (?Keyboard@GLUTCallbacks@@YAXEHH@Z) referenced in function "public: void __thiscall HelloGL::InitGL(int,char * * const)" (?InitGL@HelloGL@@QAEXHQAPAD@Z)
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\Debug\GraphicsProgramming.exe : fatal error LNK1120: 4 unresolved externals
