@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>
 
-Cube::Cube(Mesh* mesh, Texture2D* texture, int x, int y, int z) : SceneObject(mesh, texture)
+Cube::Cube(Mesh* mesh, Texture2D* texture, float x, float y, float z) : SceneObject(mesh, texture)
 {
 	
 	_Position.x = x;

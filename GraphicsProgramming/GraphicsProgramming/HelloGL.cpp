@@ -59,8 +59,9 @@ HelloGL::HelloGL(int argc, char* argv[])
 {
 	GLUTCallbacks::Init(this);
 	HelloGL::InitGL(argc, argv);
+	HelloGL::InitLight();
 	HelloGL::InitObjects();
-	
+
 	glutMainLoop();
 
 
@@ -88,6 +89,24 @@ void HelloGL::Update()
 	for (int c = 0; c < NUM_OBJECTS; c++) {
 		objects[c]->Update();
 	}
+	glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Ambient.x));
+	//glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Ambient.y));
+	//glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Ambient.z));
+	//glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Ambient.w));
+	glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Diffuse.x));
+	//glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Diffuse.y));
+	//glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Diffuse.z));
+	//glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Diffuse.w));
+	glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Specular.x));
+	//glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Specular.y));
+	//glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Specular.z));
+	//glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Specular.w));
+
+	glLightfv(GL_LIGHT0, GL_POSITION, &(_lightPosition->x));
+	//glLightfv(GL_LIGHT0, GL_POSITION, &(_lightPosition->y));
+	//glLightfv(GL_LIGHT0, GL_POSITION, &(_lightPosition->z));
+	//glLightfv(GL_LIGHT0, GL_POSITION, &(_lightPosition->w));
+
 
 	/*if (rotationOct >= 360.0f)
 	{
@@ -276,18 +295,18 @@ void HelloGL::InitObjects()
 	stars->Load((char*)"stars.raw", 512, 512);
 	penguins->Load((char*)"penguins.raw", 512, 512);
 
-	for (int i = 0; i < 250; i++)
+	for (int i = 0; i < 500; i++)
 	{
 		objects[i] = new Cube(cubeMesh, stars, ((rand() % 400) / 10.0f) - 20.0f, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
 	}	
-	for (int i = 250; i < 500; i++)
+	for (int i = 500; i < 1000; i++)
 	{
 		objects[i] = new Cube(cubeMesh, penguins, ((rand() % 400) / 10.0f) - 20.0f, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
 	}
-	for (int i = 500; i < 1000; i++)
+	/*for (int i = 500; i < 1000; i++)
 	{
 		objects[i] = new Pyramid(pyramidMesh, ((rand() % 400) / 10.0f) - 20.0f, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
-	}
+	}*/
 
 	camera->eye.x = 0.0f; camera->eye.y = 0.0f; camera->eye.z = 3.0f;
 	camera->center.x = 0.0f; camera->center.y = 0.0f; camera->center.z = 0.0f;
@@ -315,12 +334,12 @@ void HelloGL::InitGL(int argc, char* argv[])
 	gluPerspective(45, 1, 1, 10000);
 	glViewport(0, 0, 800, 800);
 
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
 	glEnable(GL_TEXTURE_2D);
 	glMatrixMode(GL_MODELVIEW);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
-	glEnable(GL_LIGHTING);
-	glEnable(GL_LIGHT0);
 	glCullFace(GL_BACK);
 	
 	//glCullFace(GL_FRONT);
@@ -332,21 +351,43 @@ void HelloGL::InitLight()
 	_lightPosition->x = 0.0;
 	_lightPosition->y = 0.0;
 	_lightPosition->z = 1.0;
-	_lightPosition->x = 0.0;
+	_lightPosition->w = 0.0;
 
 	_lightData = new Lighting();
-	_lightData->Ambient.x
-	_lightData->Ambient.y
-	_lightData->Ambient 
-	_lightData->Ambient
-	_lightData->Diffuse.x
-	_lightData->Diffuse.y
-	_lightData->Diffuse
-	_lightData->Diffuse
-	_lightData->Specular.x
-	_lightData->Specular.y
-	_lightData->Specular
-	_lightData->Specular
+	_lightData->Ambient.x = 0.2;
+	_lightData->Ambient.y = 0.2;
+	_lightData->Ambient.z = 0.2;
+	_lightData->Ambient.w = 1.0;
+	_lightData->Diffuse.x = 0.8;
+	_lightData->Diffuse.y = 0.8;
+	_lightData->Diffuse.z = 0.8;
+	_lightData->Diffuse.w = 1.0;
+	_lightData->Specular.x = 0.2;
+	_lightData->Specular.y = 0.2;
+	_lightData->Specular.z = 0.2;
+	_lightData->Specular.w = 1.0;
+}
+
+void HelloGL::InitMaterial()
+{
+	_material = new Material();
+	_material->Ambient.x = 0.8;
+	_material->Ambient.y = 0.05;
+	_material->Ambient.z = 0.05;
+	_material->Ambient.w = 1.0;
+	_material->Diffuse.x = 0.8;
+	_material->Diffuse.y = 0.05;
+	_material->Diffuse.z = 0.05;
+	_material->Diffuse.w = 1.0;
+	_material->Specular.x = 1.0;
+	_material->Specular.y = 1.0;
+	_material->Specular.z = 1.0;
+	_material->Specular.w = 1.;
+	_material->Shininess = 100.0f;
+	glMaterialfv(GL_FRONT, GL_AMBIENT, &(_material->Ambient.x));
+	glMaterialfv(GL_FRONT, GL_SHININESS, &(_material->Shininess));
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, &(_material->Diffuse.x));
+	glMaterialfv(GL_FRONT, GL_SPECULAR, &(_material->Specular.x));
 }
 
 HelloGL::~HelloGL(void)

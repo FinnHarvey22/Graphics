@@ -32,6 +32,7 @@ public:
 	void InitObjects();
 	void InitGL(int argc, char* argv[]);
 	void InitLight();
+	void InitMaterial();
 private:
 	float rotationOct;
 	float rotationSqu;
@@ -40,6 +41,8 @@ private:
 	SceneObject* objects[NUM_OBJECTS];
 	Vector4* _lightPosition;
 	Lighting* _lightData;
+	Material* _material;
+
 	
 	
 	/*static Vertex vertices[];
