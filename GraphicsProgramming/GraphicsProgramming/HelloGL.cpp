@@ -1,6 +1,7 @@
 #include "GLUTCallbacks.h"
 #include "HelloGL.h"
 #include "MeshLoader.h"
+#include "OBJLoader.h"
 
 
 
@@ -348,41 +349,41 @@ void HelloGL::InitGL(int argc, char* argv[])
 void HelloGL::InitLight()
 {
 	_lightPosition = new Vector4();
-	_lightPosition->x = 0.0;
-	_lightPosition->y = 0.0;
-	_lightPosition->z = 1.0;
-	_lightPosition->w = 0.0;
+	_lightPosition->x = 0.0f;
+	_lightPosition->y = 0.0f;
+	_lightPosition->z = 1.0f;
+	_lightPosition->w = 0.0f;
 
 	_lightData = new Lighting();
-	_lightData->Ambient.x = 0.2;
-	_lightData->Ambient.y = 0.2;
-	_lightData->Ambient.z = 0.2;
-	_lightData->Ambient.w = 1.0;
-	_lightData->Diffuse.x = 0.8;
-	_lightData->Diffuse.y = 0.8;
-	_lightData->Diffuse.z = 0.8;
-	_lightData->Diffuse.w = 1.0;
-	_lightData->Specular.x = 0.2;
-	_lightData->Specular.y = 0.2;
-	_lightData->Specular.z = 0.2;
-	_lightData->Specular.w = 1.0;
+	_lightData->Ambient.x = 0.2f;
+	_lightData->Ambient.y = 0.2f;
+	_lightData->Ambient.z = 0.2f;
+	_lightData->Ambient.w = 1.0f;
+	_lightData->Diffuse.x = 0.8f;
+	_lightData->Diffuse.y = 0.8f;
+	_lightData->Diffuse.z = 0.8f;
+	_lightData->Diffuse.w = 1.0f;
+	_lightData->Specular.x = 0.2f;
+	_lightData->Specular.y = 0.2f;
+	_lightData->Specular.z = 0.2f;
+	_lightData->Specular.w = 1.0f;
 }
 
 void HelloGL::InitMaterial()
 {
 	_material = new Material();
-	_material->Ambient.x = 0.8;
-	_material->Ambient.y = 0.05;
-	_material->Ambient.z = 0.05;
-	_material->Ambient.w = 1.0;
-	_material->Diffuse.x = 0.8;
-	_material->Diffuse.y = 0.05;
-	_material->Diffuse.z = 0.05;
-	_material->Diffuse.w = 1.0;
-	_material->Specular.x = 1.0;
-	_material->Specular.y = 1.0;
-	_material->Specular.z = 1.0;
-	_material->Specular.w = 1.;
+	_material->Ambient.x = 0.8f;
+	_material->Ambient.y = 0.05f;
+	_material->Ambient.z = 0.05f;
+	_material->Ambient.w = 1.0f;
+	_material->Diffuse.x = 0.8f;
+	_material->Diffuse.y = 0.05f;
+	_material->Diffuse.z = 0.05f;
+	_material->Diffuse.w = 1.0f;
+	_material->Specular.x = 1.0f;
+	_material->Specular.y = 1.0f;
+	_material->Specular.z = 1.0f;
+	_material->Specular.w = 1.f;
 	_material->Shininess = 100.0f;
 	glMaterialfv(GL_FRONT, GL_AMBIENT, &(_material->Ambient.x));
 	glMaterialfv(GL_FRONT, GL_SHININESS, &(_material->Shininess));

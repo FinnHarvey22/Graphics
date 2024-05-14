@@ -1,17 +1,16 @@
-﻿  HelloGL.cpp
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(360,26): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(361,26): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(362,26): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(364,26): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(365,26): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(366,26): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(368,27): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(369,27): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(370,27): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(377,25): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(378,25): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(379,25): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(381,25): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(382,25): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(383,25): warning C4305: '=': truncation from 'double' to 'float'
+﻿  Cube.cpp
+  GLUTCallbacks.cpp
+  GLUTCallbacks.h
+  HelloGL.cpp
+  main.cpp
+  MeshLoader.cpp
+  OBJLoader.cpp
+  Pyramid.cpp
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\Pyramid.cpp(8,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\Pyramid.cpp(9,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\Pyramid.cpp(10,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  SceneObject.cpp
+  Texture2D.cpp
+  Generating Code...
+Debug\GLUTCallbacks.obj : warning LNK4042: object specified more than once; extras ignored
   GraphicsProgramming.vcxproj -> C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\Debug\GraphicsProgramming.exe
