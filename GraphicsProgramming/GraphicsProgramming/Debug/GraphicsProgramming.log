@@ -1,16 +1,8 @@
-﻿  Cube.cpp
-  GLUTCallbacks.cpp
-  GLUTCallbacks.h
-  HelloGL.cpp
-  main.cpp
-  MeshLoader.cpp
-  OBJLoader.cpp
-  Pyramid.cpp
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\Pyramid.cpp(8,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\Pyramid.cpp(9,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\Pyramid.cpp(10,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  SceneObject.cpp
-  Texture2D.cpp
-  Generating Code...
-Debug\GLUTCallbacks.obj : warning LNK4042: object specified more than once; extras ignored
+﻿  HelloGL.cpp
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(117,29): warning C4473: 'sscanf_s' : not enough arguments passed for format string
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(117,29): message : placeholders and their parameters expect 3 variadic arguments, but 2 were provided
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(117,29): message : the missing variadic argument 3 is required by format string '%f'
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(121,29): warning C4473: 'sscanf_s' : not enough arguments passed for format string
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(121,29): message : placeholders and their parameters expect 3 variadic arguments, but 2 were provided
+C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\GraphicsProgramming\HelloGL.cpp(121,29): message : the missing variadic argument 3 is required by format string '%f'
   GraphicsProgramming.vcxproj -> C:\Users\h018061n\Documents\Graphics\GraphicsProgramming\Debug\GraphicsProgramming.exe

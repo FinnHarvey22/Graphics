@@ -7,7 +7,7 @@ using namespace std;
 namespace MeshLoader
 {
 	void LoadVertices(ifstream& inFile, Mesh& mesh);
-	void LoadColours(ifstream& inFile, Mesh& mesh);
+	void LoadNormals(ifstream& inFile, Mesh& mesh);
 	void LoadCoords(ifstream& inFile, Mesh& Mesh);
 	void LoadIndices(ifstream& inFile, Mesh& mesh);
 	

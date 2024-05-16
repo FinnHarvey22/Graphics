@@ -8,6 +8,13 @@
 #include "Cube.h"
 #include "Pyramid.h"
 #include <iostream>
+#include "OBJLoader.h"
+#include <fstream>
+#include <math.h>
+#include <time.h>
+#include <vector>
+#include <string>
+#include "GL/freeglut.h"
 #define REFRESHRATE 16
 
 #define NUM_OBJECTS 1000
@@ -42,6 +49,7 @@ private:
 	Vector4* _lightPosition;
 	Lighting* _lightData;
 	Material* _material;
+
 
 	
 	

@@ -1,8 +1,8 @@
 #include "GLUTCallbacks.h"
 #include "HelloGL.h"
 #include "MeshLoader.h"
-#include "OBJLoader.h"
 
+#define _CRT_SECURE_NO_WARNINGS
 
 
 //Vertex HelloGL::vertices[] = { 
@@ -10,6 +10,7 @@
 //
 //-1,-1, 1, 1,-1, 1, 1, 1, 1, // v2-v3-v0
 //
+
 //1, 1, 1, 1,-1, 1, 1,-1,-1, // v0-v3-v4 (right)
 //
 //1,-1,-1, 1, 1,-1, 1, 1, 1, // v4-v5-v0
@@ -67,6 +68,122 @@ HelloGL::HelloGL(int argc, char* argv[])
 
 
 }
+class Model {
+private:
+	class Face {
+	public:
+		int edge;
+		int* vertices;
+		int* texcoords;
+		int normal;
+
+		Face(int edge, int* vertices, int* texcoords, int normal = -1) {
+			this->edge = edge; this->vertices = vertices; this->texcoords = texcoords; this->normal = normal;
+		}
+
+
+	};
+	std::vector<float*> vertices;
+	std::vector<float*> texcoords;
+	std::vector<float*> normals;
+	std::vector<Face> faces;
+	GLuint list;
+
+public:
+	void Load(const char* filename) {
+		std::string line;
+		std::vector<std::string> lines;
+
+		std::ifstream in(filename);
+		if (!in.is_open()) {
+			printf("Cannot Load Model %s\n", filename);
+			return;
+		}
+
+		while (!in.eof()) {
+			std::getline(in, line);
+			lines.push_back(line);
+		}
+		in.close();
+		float a, b, c;
+
+		for (std::string& line : lines) {
+			if (line[0] == 'v') {
+				if (line[1] == ' ') {
+					sscanf_s(line.c_str(), "v %f %f %f", &a, &b, &c);
+					vertices.push_back(new float[3] {a, b, c});
+				}
+				else if (line[1] == 't') {
+					sscanf_s(line.c_str(), "v %f %f %f", &a, &b);
+					texcoords.push_back(new float[2] {a, b});
+				}
+				else if (line[1] == 'n') {
+					sscanf_s(line.c_str(), "v %f %f %f", &a, &b);
+					normals.push_back(new float[3] {a, b, c});
+				}
+			}
+			else if (line[0] == 'f') {
+				int v0, v1, v2, t0, t1, t2, n;
+				sscanf_s(line.c_str(), "f %d/%d/%d %d/%d/%d %d/%d/%d", &v0, &t0, &n, &v1, &t1, &n, &v2, &t2, &n);
+				int* v = new int[3] {v0 - 1, v1 - 1, v2 - 1};
+				faces.push_back(Face(3, v, NULL, n - 1));
+			}
+		}
+		list = glGenLists(1);
+		glNewList(list, GL_COMPILE);
+		for (Face& face : faces) {
+			if (face.normal != -1) {
+				glNormal3fv(normals[face.normal]);
+			}
+			else
+			{
+				glDisable(GL_LIGHTING);
+			}
+			glBegin(GL_POLYGON);
+			for (int i = 0; i < face.edge; i++) {
+				glVertex3fv(vertices[face.vertices[i]]);
+			}
+			glEnd();
+			if (face.normal == -1) {
+				glEnable(GL_LIGHTING);
+			}
+		}
+
+		glEndList();
+		printf("Model: %s\n", filename);
+		printf("Vertices: %d\n", vertices.size());
+		printf("Texcoords: %d\n", texcoords.size());
+		printf("Normals: %d\n", normals.size());
+		printf("Faces: %d\n", faces.size());
+
+		for (float* f : vertices) {
+			delete f;
+		}
+		vertices.clear();
+		for (float* f : texcoords) {
+			delete f;
+		}
+		texcoords.clear();
+		for (float* f : normals)
+		{
+			delete f;
+		}
+		normals.clear();
+		faces.clear();
+
+		//19:18
+
+
+	};
+
+	void draw() { glCallList(list); }
+
+
+
+
+
+};
+Model model;
 void HelloGL::Display()
 {
 	
@@ -76,9 +193,10 @@ void HelloGL::Display()
 	//DrawTriangle();
 	//glutWireIcosahedron();
 	//DrawPyramid();
-	for (int b = 0; b < NUM_OBJECTS; b++) {
+	/*for (int b = 0; b < NUM_OBJECTS; b++) {
 		objects[b]->Draw();
-	}
+	}*/
+	model.draw();
 	glFlush();
 	glutSwapBuffers();
 }
@@ -91,23 +209,9 @@ void HelloGL::Update()
 		objects[c]->Update();
 	}
 	glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Ambient.x));
-	//glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Ambient.y));
-	//glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Ambient.z));
-	//glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Ambient.w));
 	glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Diffuse.x));
-	//glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Diffuse.y));
-	//glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Diffuse.z));
-	//glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Diffuse.w));
 	glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Specular.x));
-	//glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Specular.y));
-	//glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Specular.z));
-	//glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->Specular.w));
-
 	glLightfv(GL_LIGHT0, GL_POSITION, &(_lightPosition->x));
-	//glLightfv(GL_LIGHT0, GL_POSITION, &(_lightPosition->y));
-	//glLightfv(GL_LIGHT0, GL_POSITION, &(_lightPosition->z));
-	//glLightfv(GL_LIGHT0, GL_POSITION, &(_lightPosition->w));
-
 
 	/*if (rotationOct >= 360.0f)
 	{
@@ -266,21 +370,22 @@ void HelloGL::Keyboard(unsigned char key, int x, int y)
 {
 	if (key == 'd') 
 	{
-		camera->eye.x += 0.1f;
+		camera->eye.x += 0.5f;
 	}
 	if (key == 'a') 
 	{
-		camera->eye.x -= 0.1f;
+		camera->eye.x -= 0.5f;
 	}
 	if (key == 'w')
 	{
-		camera->eye.y += 0.1f;
+		camera->eye.y += 0.5f;
 	}
 	if (key == 's')
 	{
-		camera->eye.y -= 0.1f;
+		camera->eye.y -= 0.5f;
 	}
 }
+
 
 void HelloGL::InitObjects()
 {
@@ -295,6 +400,7 @@ void HelloGL::InitObjects()
 	Mesh* pyramidMesh = MeshLoader::Load((char*)"pyramid.txt", false);
 	stars->Load((char*)"stars.raw", 512, 512);
 	penguins->Load((char*)"penguins.raw", 512, 512);
+	model.Load((char*)"Trump.obj");
 
 	for (int i = 0; i < 500; i++)
 	{
@@ -390,6 +496,9 @@ void HelloGL::InitMaterial()
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, &(_material->Diffuse.x));
 	glMaterialfv(GL_FRONT, GL_SPECULAR, &(_material->Specular.x));
 }
+
+
+
 
 HelloGL::~HelloGL(void)
 {
